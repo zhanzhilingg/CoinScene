@@ -43,9 +43,6 @@
 * 沙盒
 
 ### link
-* *demo：* <http://192.168.1.240:5000>
-* *SDK：* <http://192.168.1.240:5000/cdn/coinscene.umd.js>
-* *document：* <http://192.168.1.240:5000/doc>
 * *iconfont：* <https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2764524&keyword=&project_type=&page=>
 * *fbx参考：* <http://park.vr100.com/intest/showuiAppIo3js.html?appid=381>
 * *体素模型参考：* <https://threejsfundamentals.org/threejs/lessons/threejs-voxel-geometry.html>
