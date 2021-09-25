@@ -1,0 +1,53 @@
+{
+  "name": "coinscene",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "build:doc": "jsdoc -c ./jsdoc.config.json README.md -r",
+    "build:cdn": "vite build --config vite.config.cdn.js"
+  },
+  "dependencies": {
+    "@jdultra/threedtiles": "^1.0.2",
+    "@turf/turf": "^6.3.0",
+    "@tweenjs/tween.js": "^18.6.4",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "ant-design-vue": "^2.2.0-rc.1",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.0.3",
+    "camera-controls": "^1.31.0",
+    "echarts": "^5.2.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "file-saver": "^2.0.5",
+    "jsts": "^2.6.2",
+    "lazy-gltf-loader": "^1.0.2",
+    "lodash.clonedeep": "^4.5.0",
+    "moment": "^2.29.1",
+    "pako": "^1.0.10",
+    "progressbar.js": "^1.1.0",
+    "proj4": "^2.5.0",
+    "shp2json-js": "^0.4.1",
+    "tess2": "^1.0.0",
+    "three": "^0.129.0",
+    "three-css2drender": "^1.0.0",
+    "uuidjs": "^4.2.9",
+    "vue": "^3.0.5",
+    "vue-fullscreen": "^2.5.2",
+    "xlsx": "^0.16.6",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.8",
+    "@vue/compiler-sfc": "^3.0.5",
+    "jsdoc": "^3.6.7",
+    "less": "^2.7.2",
+    "less-loader": "^9.0.0",
+    "vite": "^2.3.8",
+    "vite-plugin-html": "^2.1.0",
+    "vite-svg-loader": "^2.2.0"
+  }
+}

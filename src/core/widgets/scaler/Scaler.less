@@ -1,0 +1,18 @@
+
+.CoinSceneScaler {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 3px solid @heading-color;
+  border-left: 1px solid @heading-color;
+  border-right: 1px solid @heading-color;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  
+  &::after {
+    content: attr(scalerLabel);
+    position: absolute;
+    bottom: 0;
+  }
+}

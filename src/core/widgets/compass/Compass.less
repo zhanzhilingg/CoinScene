@@ -1,0 +1,103 @@
+@sideLen: 100px;
+.CoinSceneCompass{
+	height: @sideLen;
+	width: @sideLen;
+	position: absolute;
+	right: 0;
+	top: 0;
+	// border:0px solid black;
+	transform: translate(-50%,-50%) rotateX(45deg) rotateY(45deg);
+	transform-style: preserve-3d;
+	z-index: 100;
+
+	// &:hover{
+	// 	transform: translate(-50%,-50%)  rotateX(145deg) rotateY(45deg) rotateZ(105deg);
+	// 	transition: all 5s;
+	// }
+
+	div{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		height: @sideLen/2;
+		width: @sideLen/2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		// border-radius: 5px;
+		cursor: pointer;
+		background-color: @primary-8;
+		color: @text-color-secondary-dark;
+		box-shadow: 0 0 @sideLen/3 @normal-color inset;
+		font-weight: 400;
+		&:hover {
+			// border: 1px solid @primary-color;
+			color: @white;
+		}
+		&::after {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			background-size: 100% 100%;
+			font-size: 18px;
+		}
+	}
+
+	.CoinSceneCompass-face1{
+		transform:translate(-50%,-50%) translateY(-@sideLen/4) rotateX(90deg);
+		&::after {
+			content: 'Down';
+			// background-image: url('@/assets/images/下.png');
+			transform: rotateX(180deg)
+		}
+	}
+	
+	.CoinSceneCompass-face2{
+		transform:translate(-50%,-50%) translateX(-@sideLen/4) rotateY(90deg);
+		&::after {
+			content: 'W';
+			// background-image: url('@/assets/images/西.png');
+			transform: rotate(180deg)
+		}
+	}
+	
+	.CoinSceneCompass-face3{
+		transform:translate(-50%,-50%) translateZ(-@sideLen/4);
+		&::after {	
+			content: 'S';
+			// background-image: url('@/assets/images/北.png');
+			transform: rotate(180deg);
+		}
+	}
+	
+	.CoinSceneCompass-face4{
+		transform:translate(-50%,-50%) translateY(@sideLen/4) rotateX(90deg);
+		&::after {	
+			content: 'Up';
+			// background-image: url('@/assets/images/上.png');
+			// transform: rotate(180deg);
+		}
+	}
+	
+	.CoinSceneCompass-face5{
+		transform:translate(-50%,-50%) translateX(@sideLen/4) rotateY(90deg);
+		&::after {	
+			content: 'E';
+			// background-image: url('@/assets/images/东.png');
+			transform: rotateX(180deg);
+		}
+	}
+	
+	.CoinSceneCompass-face6{
+		transform:translate(-50%,-50%) translateZ(@sideLen/4);
+		&::after {	
+			content: 'N';
+			// background-image: url('@/assets/images/南.png');
+			transform: rotateX(180deg);
+		}
+	}
+
+}

@@ -1,0 +1,27 @@
+{
+  "source": {
+    "include": [
+      "src/core/"
+    ],
+    "exclude": [
+      "index.js"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)(_|index.js)"
+  },
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles" : false
+    },
+    "applicationName": "CoinScene",
+    "openGraph": {},
+    "meta": {
+      "version": "2.0"
+    }
+  }
+}

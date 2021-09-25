@@ -1,0 +1,30 @@
+/**
+* @author zhanzl
+*/
+
+// widget
+@import ~'@core/widgets/compass/Compass.less';
+@import ~'@core/widgets/scaler/Scaler.less';
+@import ~'@core/widgets/Legend/Legend.less';
+
+.CoinScene-Container {
+  background-color: @layout-body-background;
+  z-index: 1;
+  .CoinScene-Progress {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    >div {
+      margin: 3px;
+      width: 50%;
+      .progressbar-text {
+        color: white !important;
+        font-size: 10px;
+      }
+    }
+  }
+}

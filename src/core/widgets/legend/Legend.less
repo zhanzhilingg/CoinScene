@@ -1,0 +1,55 @@
+.CoinSceneLegend {
+  position: absolute;
+  bottom: 10px;
+  border: 1px solid @normal-color;
+  right: 10px;
+  width: 180px;
+  background-color: @white;
+  z-index: 100;
+  .CoinSceneLegend-title {
+    font-size: 16px;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 600;
+    background-color: @modal-header-bg;
+    // border-bottom: 1px solid @normal-color;
+    i.iconfont {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+  .CoinSceneLegend-item-content {
+    display: block;
+    min-height: 50px;
+    max-height: 200px;
+    overflow: auto;
+  }
+  .CoinSceneLegend-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: pointer;
+    border-top: 1px solid @normal-color;
+  }
+  .CoinSceneLegend-item-one {
+    position: relative;
+    width: 35px;
+    height: 30px;
+    margin: 5px;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    &::after {
+      content: attr(title);
+      position: absolute;
+      left: 40px;
+      display: inline-block;
+      width: 115px;
+      height: 30px;
+      line-height: 30px;
+      text-align: left;
+      overflow: auto;
+    }
+  }
+}
