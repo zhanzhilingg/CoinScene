@@ -1,5 +1,6 @@
 import { EventDispatcher, PlaneGeometry, MeshBasicMaterial, Mesh, Vector3, Box3, Plane, DoubleSide } from 'three'
 import { disposeObj3d } from '@core/utils'
+// import { Tiles, Model } from '@core/entities'
 export default class Cut extends EventDispatcher {
   /**
    * is enable cut
@@ -44,13 +45,13 @@ export default class Cut extends EventDispatcher {
     this.scene = scene
     this.resetCutPanel = this.resetCutPanel.bind(this)
     this.scene.addEventListener('entitiesChange', this.resetCutPanel)
+    this.scene.addEventListener('entity:loaded', this.resetCutPanel) // 模型加载完成时，再次调用更新剪裁面
   }
   /**
    * 重新设置剪裁面
    * @memberof Cut
    */
   resetCutPanel (e) {
-    const arr = e.array
     this.setAxisPanel('x')
     this.setAxisPanel('y')
     this.setAxisPanel('z')
@@ -72,8 +73,9 @@ export default class Cut extends EventDispatcher {
     }
     const clipPlanes = []
     const m = makeAxisPanel.call(this, axis)
-    m.panel.position[axis] = parseFloat(position)
-    m.plane.constant = parseFloat(position)
+    const pos = position ?? 0
+    m.panel.position[axis] = parseFloat(pos)
+    m.plane.constant = parseFloat(pos)
     this.axis.panel[axis] = m.panel
     this.axis.plane[axis] = m.plane
     this.scene.scene.add(this.axis.panel[axis]) // 添加预览面到场景
@@ -103,7 +105,7 @@ export default class Cut extends EventDispatcher {
     }
     if (obj.children && obj.children.length) {
       obj.children.map(item => {
-        this.setClipPlanes(item)
+        this.setClipPlanes(item, clipPlanes)
       })
     }
   }

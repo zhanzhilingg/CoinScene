@@ -5,7 +5,7 @@ import CameraControls from 'camera-controls'
 import { CSS2DRenderer, CSS2DObject } from 'three-css2drender'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 import { Widgets } from './widgets'
-import { Feature, Layer } from './entities'
+import { Feature, Layer, Tiles, Model } from './entities'
 import { disposeObj3d, computeBoundingSphere, onChange } from '@core/utils'
 import config from './config/config'
 // camera controls
@@ -249,6 +249,15 @@ export default class Scene extends THREE.EventDispatcher {
     // 监听entities数组变化
     onChange(this._entities, (array, arg, result) => {
       this.dispatchEvent({ type: 'entitiesChange', array, arg, result })
+      array.map(item => {
+        if (item instanceof Tiles || item instanceof Model) {
+          this.onEntityLoaded = this.onEntityLoaded.bind(this)
+          const bool = item.hasEventListener('loaded', this.onEntityLoaded)
+          if (!bool) {
+            item.addEventListener('loaded', this.onEntityLoaded)
+          }
+        }
+      })
     })
   }
 
@@ -467,5 +476,14 @@ export default class Scene extends THREE.EventDispatcher {
     this.removeEventListener('inited')
     this.removeEventListener('render')
     this.dispatchEvent({ type: 'destroyed' })
+  }
+
+  /**
+   * entity loaded
+   * @private
+   * @param {Event} w
+   */
+  onEntityLoaded (e) {
+    this.dispatchEvent({ type: 'entity:loaded', e })
   }
 }

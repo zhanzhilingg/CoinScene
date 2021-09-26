@@ -43,16 +43,16 @@ export default defineComponent({
   methods: {
     // install coinscene
     install (scene) {
-      //
       this.scene = reactive(scene)
       this.scene.outOfControl(this.$el)
-      //
-      this.scene.addEventListener('entitiesChange', e => {
-        const box3 = this.scene.getBoxRange().box3
-        this.box3 = box3
-        this.position = box3.getCenter()
-      })
+      this.scene.addEventListener('entitiesChange', e => { this.resizeBox() })
+      this.scene.addEventListener('entity:loaded', e => { this.resizeBox() })
       this.cutControl = new Cut(scene)
+    },
+    resizeBox () {
+      const box3 = this.scene.getBoxRange().box3
+      this.box3 = box3
+      this.position = box3.getCenter()
     },
     onPlaneCheck (k) {
       const bool = !this.isChecked[k]
